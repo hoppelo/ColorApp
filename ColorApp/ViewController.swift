@@ -8,6 +8,8 @@
 import UIKit
 
 final class ViewController: UIViewController {
+    
+    // MARK: - IB Outlets
     @IBOutlet var colorDisplay: UIView!
     @IBOutlet var redLabel: UILabel!
     @IBOutlet var greenLabel: UILabel!
@@ -17,15 +19,17 @@ final class ViewController: UIViewController {
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        colorChanging()
         colorDisplay.layer.cornerRadius = 20
-        redSlider.value = 1
-        greenSlider.value = 1
-        blueSlider.value = 1
-
+        redSlider.value = 0.0
+        greenSlider.value = 0.0
+        blueSlider.value = 0.0
     }
 
+    // MARK: - IB Actions
     @IBAction func redSliderAction() {
         redLabel.text = redSlider.value
             .formatted(.number.precision(.fractionLength(1)))
@@ -44,6 +48,7 @@ final class ViewController: UIViewController {
         colorChanging()
     }
     
+    // MARK: - Private Methods
     private func colorChanging() {
         colorDisplay.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
