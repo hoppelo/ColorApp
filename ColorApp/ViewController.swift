@@ -24,27 +24,24 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         colorChanging()
         colorDisplay.layer.cornerRadius = 20
-        redSlider.value = 0.0
-        greenSlider.value = 0.0
-        blueSlider.value = 0.0
     }
 
     // MARK: - IB Actions
     @IBAction func redSliderAction() {
         redLabel.text = redSlider.value
-            .formatted(.number.precision(.fractionLength(1)))
+            .formatted(.number.precision(.fractionLength(2)))
         colorChanging()
     }
     
     @IBAction func greenSliderAction() {
         greenLabel.text = greenSlider.value
-            .formatted(.number.precision(.fractionLength(1)))
+            .formatted(.number.precision(.fractionLength(2)))
         colorChanging()
     }
     
     @IBAction func blueSliderAction() {
         blueLabel.text = blueSlider.value
-            .formatted(.number.precision(.fractionLength(1)))
+            .formatted(.number.precision(.fractionLength(2)))
         colorChanging()
     }
     
